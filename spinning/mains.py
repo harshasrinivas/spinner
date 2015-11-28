@@ -13,10 +13,21 @@ import os
 
 term = blessings.Terminal()
 
+shapes = {
+    'tetris': ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
+    'swords': ['-', '/', '\\'],
+    'circles': ['.', 'o', 'O', '°', 'O', 'o', '.'],
+    'hourglass': ['⏳', '⌛'],
+    'moons': ["◐", "◓", "◑", "◒"],
+    'progressbar': ['█▒▒▒▒', '███▒▒', '█████'],
+    'histogram': ['▁', '▃', '▄', '▅', '▆', '▇', '█', '▇', '▆', '▅', '▄', '▃', '▁'],
+    'clock': ['🕛', '🕐', '🕑', '🕒', '🕓', '🕔', '🕕', '🕖', '🕗', '🕘', '🕙', '🕚']
+}
+
 
 class spin:
 
-    def __init__(self, sec=5, color='cyan'):
+    def __init__(self, sec=5, color='cyan', form='tetris'):
         self.display = {
             'cyan': term.cyan,
             'red': term.red,
@@ -28,8 +39,7 @@ class spin:
 
         def spin():
             while True:
-                p = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-                for x in p:
+                for x in shapes[form]:
                     yield self.display.get(color, term.cyan)(x)
 
         spinner = spin()
