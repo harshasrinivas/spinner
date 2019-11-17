@@ -16,6 +16,7 @@ $ pip install spinning
 import spinning
 spinning.spin()		# Spins for 5 seconds by default
 spinning.spin(3)		# Spins for 3 seconds
+spinning.spin(color='red') # spinner color is red (can be : green, yellow, magenta, cyan, white, red)
 ```
 
 # Contribute
